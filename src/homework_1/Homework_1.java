@@ -1,3 +1,5 @@
+package homework_1;
+
 public class Homework_1 {
     public static void main(String[] args) {
         calculateValue ();
@@ -19,8 +21,7 @@ public class Homework_1 {
 
         a=4*(b+c-1)/2;
 
-        System.out.print("Task 1: ");
-        System.out.println("Meaning of a = " + a );
+        System.out.println("Task 1: Meaning of a = " + a );
     }
     public static void calculateSum() {
        int n;
@@ -33,8 +34,7 @@ public class Homework_1 {
        k = n % 10;
        sum = m+k;
 
-       System.out.print("Task 2: ");
-       System.out.println("Sum of a two-digit number = " + sum);
+       System.out.println("Task 2: Sum of a two-digit number = " + sum);
     }
     public static void calculateSumNumber() {
         int number;
@@ -50,17 +50,16 @@ public class Homework_1 {
         oneNumber = number % 10;
         sumThree = threeNumber + twoNumber + oneNumber ;
 
-        System.out.print("Task 3: ");
-        System.out.println("Sum of a three-digit number = " + sumThree);
+        System.out.println("Task 3: Sum of a three-digit number = " + sumThree);
     }
     public static void printRealNumber() {
         double doubleVar;
         int intVar;
 
-        doubleVar = 24.76;
-        intVar = (int) doubleVar;
-        System.out.print("Task 4: ");
-        System.out.println("Rounded real number = " + intVar);
+        doubleVar = 26.76;
+       // intVar = (int) doubleVar;
+       // System.out.println("Task 4: Rounded real number = " + intVar);
+        System.out.printf("Task 4: Rounded real number = %.0f \n",doubleVar);
     }
     public static void divideWithRemainder() {
         int d;
@@ -74,10 +73,8 @@ public class Homework_1 {
         result =  d / c;
         f = d % c;
 
-        System.out.print("Task 5: ");
-        System.out.println("Result of division with remainder = " + result + " and " + f + " in the remainder.");
-        //double doubleResult = (float) d / c;
-        //System.out.printf("Result of division with remainder = %.1f ", doubleResult);
+        System.out.println("Task 5: Result of division with remainder = " + result + " and " + f + " in the remainder.");
+
     }
     public static void replacePlaces() {
         int xVelueOne;
@@ -91,8 +88,7 @@ public class Homework_1 {
         xVelueOne = yVelueTwo;
         yVelueTwo = velueTemporaryStorage;
 
-        System.out.print("Task 6: ");
-        System.out.println("Value x = " + xVelueOne + " Value y = " + yVelueTwo);
+        System.out.println("Task 6: Value x = " + xVelueOne + " Value y = " + yVelueTwo);
 
     }
 }
