@@ -4,45 +4,92 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Homework_4MyMain {
-    static int[] array;
-    static int[] arrayManualInput;
-    static int lengthArray;
-    static int random;
-    static int minValue;
-    static int maxValue;
-
     public static void main(String[] args) {
+        int lengthArray;
+        int random;
+        Scanner numberEnter = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Введите длину массива: ");
+            if (numberEnter.hasNextInt()) {
+                lengthArray = numberEnter.nextInt();
+
+                numberEnter.nextLine();
+                if (lengthArray > 0) {
+
+                    System.out.println("Введена длинна массива: " + lengthArray);
+                    break;
+                } else {
+                    System.out.println("Число должно быть больше 0, просто целое.");
+                }
+            } else {
+                System.out.println("Вы ввели не число.");
+                numberEnter.nextLine();
+            }
+
+
+        }
+        int[] arrayManualInput = new int[lengthArray];
+        int index = 0;
+        while (arrayManualInput.length != index) {
+            System.out.println("Введите число № " + (index + 1) + " массива.");
+            if (numberEnter.hasNextInt()) {
+                int number = numberEnter.nextInt();
+                if (number >= 0) {
+                    arrayManualInput[index] = number;
+                    index++;
+                } else {
+                    System.out.println("Число отрицательное. Ведите положительное");
+                }
+                numberEnter.nextLine();
+            } else {
+                System.out.println("Вы ввели не число.");
+                numberEnter.nextLine();
+            }
+        }
+        System.out.println("Введен массив: " + Arrays.toString(arrayManualInput));
+
+        numberEnter.close();
+
+
+        int[] array = new int[lengthArray];
+        for (int counter = 0; counter < array.length; counter++) {
+            random = (int) (Math.random() * 100);
+            array[counter] = random;
+        }
+
+        // Конец инициализации массивов
 
         System.out.println("Homework 3 arrays");
         System.out.println("Task 0.1 : ");
-        getLengthOfArray();
+        getLengthOfArray(arrayManualInput, array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 1 : ");
-        showElements();
+        showElements(array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 2 : ");
-        getMinMaxElements();
+        getMinMaxElements(array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 3 : ");
-        getIndexMinMax();
+        getIndexMinMax(array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 4 : ");
-        getZeroElements();
+        getZeroElements(array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 5 : ");
-        getReverseArray();
+        getReverseArray(array);
         System.out.println("-".repeat(90));
 
         System.out.println("Task 6 : ");
 //        determineIncreasingSequence();
-        determineIncreasingSequenceSecondVariant();
+        determineIncreasingSequenceSecondVariant(arrayManualInput);
         System.out.println("-".repeat(90));
-        
+
         //Задача *:
         //Имеется массив из неотрицательных чисел(любой). Представьте что массив
         //представляет целое число (Например массив {1,2,3} -> 123, {9,9,9} -> 999). Задача
@@ -56,66 +103,15 @@ public class Homework_4MyMain {
     }
 
 
-    public static void getLengthOfArray() {
-
-        lengthArray = 0;
-        Scanner numberEenter = new Scanner(System.in);
-
-
-        while (true) {
-            System.out.println("Введите длину массива: ");
-            if (numberEenter.hasNextInt()) {
-                lengthArray = numberEenter.nextInt();
-
-                numberEenter.nextLine();
-                if (lengthArray > 0) {
-
-                    System.out.println("Введена длинна массива: " + lengthArray);
-                    break;
-                } else {
-                    System.out.println("Число должно быть больше 0, просто целое.");
-                }
-            } else {
-                System.out.println("Вы ввели не число.");
-                numberEenter.nextLine();
-            }
-
-
-        }
-        arrayManualInput = new int[lengthArray];
-        int index = 0;
-        while (arrayManualInput.length != index) {
-            System.out.println("Введите число № " + (index + 1) + " массива.");
-            if (numberEenter.hasNextInt()) {
-                int number = numberEenter.nextInt();
-                if (number >= 0) {
-                    arrayManualInput[index] = number;
-                    index++;
-                } else {
-                    System.out.println("Число отрицательное. Ведите положительное");
-                }
-                numberEenter.nextLine();
-            } else {
-                System.out.println("Вы ввели не число.");
-                numberEenter.nextLine();
-            }
-        }
-        System.out.println("Введен массив: " + Arrays.toString(arrayManualInput));
-
-        numberEenter.close();
-
-
-        array = new int[lengthArray];
-        for (int counter = 0; counter < array.length; counter++) {
-            random = (int) (Math.random() * 100);
-            array[counter] = random;
-        }
+    public static void getLengthOfArray(int[] array, int[] arrayManualInput) {
         System.out.println(Arrays.toString(array));
+        System.out.println("Длинна рандом массива: " + array.length);
 
-
+        System.out.println(Arrays.toString(arrayManualInput));
+        System.out.println("Длинна массива с ручнвм вводом  массива: " + arrayManualInput.length);
     }
 
-    public static void showElements() {
+    public static void showElements(int[] array) {
         System.out.println("Все элементы массива в прямом порядке: ");
         for (int counter = 0; counter < array.length; counter++) {
             System.out.println("Индекс [" + counter + "] - " + "значение " + array[counter]);
@@ -131,9 +127,9 @@ public class Homework_4MyMain {
 
     }
 
-    public static void getMinMaxElements() {
-        minValue = array[0];
-        maxValue = array[0];
+    public static void getMinMaxElements(int[] array) {
+        int minValue = array[0];
+        int maxValue = array[0];
         for (int counter = 0; counter < array.length; counter++) {
 
             if (array[counter] < minValue) {
@@ -150,10 +146,10 @@ public class Homework_4MyMain {
 
     }
 
-    public static void getIndexMinMax() {
+    public static void getIndexMinMax(int[] array) {
 
-        minValue = array[0];
-        maxValue = array[0];
+        int minValue = array[0];
+        int maxValue = array[0];
         int counterMin = 0;
         int counterMax = 0;
         System.out.println(Arrays.toString(array));
@@ -173,19 +169,7 @@ public class Homework_4MyMain {
                 " индекс максимального значения в массиве  max " + counterMax);
     }
 
-    public static void getZeroElements() {
-//        int[] arrayZero = {1, 34, 0, 0 , -8,8};
-//        int zero = 0;
-//        for (int counnter = 0; counnter < arrayZero.length; counnter++) {
-//            if (arrayZero[counnter] == 0) {
-//                zero += 1;
-//            }
-//        }
-//        if (zero == 0) {
-//            System.out.println("Нулевых элементов - " + zero);
-//        } else {
-//            System.out.println("Нулевых элементов - " + zero);
-//        }
+    public static void getZeroElements(int[] array) {
         int zero = 0;
         for (int counnter = 0; counnter < array.length; counnter++) {
             if (array[counnter] == 0) {
@@ -201,7 +185,7 @@ public class Homework_4MyMain {
 
     }
 
-    public static void getReverseArray() {
+    public static void getReverseArray(int[] array) {
         int[] arrayReverse = new int[array.length];
         System.out.println(Arrays.toString(array));
         for (int counter = 0; counter < array.length; counter++) {
@@ -231,11 +215,10 @@ public class Homework_4MyMain {
         }
     }
 
-    public static void determineIncreasingSequenceSecondVariant() {
-        int[] arrayZero = {1, 2, 3, 14, 8, 9};
+    public static void determineIncreasingSequenceSecondVariant(int[] array) {
         boolean flag = true;
-        for (int counter = 0; counter < arrayZero.length - 1; counter++) {
-            if (arrayZero[counter] >= arrayZero[counter + 1]) {
+        for (int counter = 0; counter < array.length - 1; counter++) {
+            if (array[counter] >= array[counter + 1]) {
                 flag = false;
                 System.out.println("Не последовательно");
                 break;
