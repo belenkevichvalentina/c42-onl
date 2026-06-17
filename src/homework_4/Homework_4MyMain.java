@@ -108,7 +108,7 @@ public class Homework_4MyMain {
         System.out.println("Длинна рандом массива: " + array.length);
 
         System.out.println(Arrays.toString(arrayManualInput));
-        System.out.println("Длинна массива с ручнвм вводом  массива: " + arrayManualInput.length);
+        System.out.println("Длинна массива с ручным вводом  массива: " + arrayManualInput.length);
     }
 
     public static void showElements(int[] array) {
@@ -116,7 +116,6 @@ public class Homework_4MyMain {
         for (int counter = 0; counter < array.length; counter++) {
             System.out.println("Индекс [" + counter + "] - " + "значение " + array[counter]);
         }
-        //System.out.println(  Arrays.toString(array));
         System.out.println("=".repeat(90));
         System.out.println("Все элементы массива в обратном порядке: ");
         for (int counter = array.length - 1; counter >= 0; counter--) {
