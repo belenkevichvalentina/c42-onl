@@ -3,7 +3,7 @@ package homework_4;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Homework_4MyMain {
+public class HomeworkMyMain {
     public static void main(String[] args) {
         int lengthArray;
         int random;

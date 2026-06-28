@@ -3,7 +3,7 @@ package homework_5;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Homework5Main {
+public class HomeworkMain {
     public static void main(String[] args) {
 
 //        Задача *:
@@ -20,6 +20,8 @@ public class Homework5Main {
         System.out.println("Task 2 : ");
         getChessboard();
         System.out.println("-".repeat(90));
+        System.out.println("Task 3 : ");
+       // getSnake();
     }
 
     public static void sumAllElements() {
@@ -48,7 +50,7 @@ public class Homework5Main {
                 sum += tableOriginal[line][val];
             }
         }
-        scanner.close();
+        //scanner.close();
 
         System.out.println("Увеличенный массив: \n" + Arrays.deepToString(tableOriginal));
 
@@ -83,5 +85,58 @@ public class Homework5Main {
 
     }
 
-}
+  /*  public static void getSnake() {
 
+        Scanner scannerSnake = new Scanner(System.in);
+
+        System.out.print("Пожалуйста, введите количество строк. ");
+        int scanRow = scannerSnake.nextInt();
+
+
+        System.out.print("Пожалуйста, укажите количество столбцов.");
+        int scanColumn = scannerSnake.nextInt();
+
+        int[][] snake = new int[scanRow][scanColumn];
+
+        int quantity = scanRow * scanColumn;
+        int counter = 0;
+        int column = scanColumn - 1;
+//        for (scanRow = 0; scanRow < snake.length; scanRow++) {
+//            for (scanColumn = 0; scanColumn < snake[scanRow].length; scanColumn++) {
+//               // snake[scanRow][scanColumn] = counter++;
+//                if (scanRow % 2 != 0) {
+//
+//                    snake[scanRow][scanColumn] = counter++;
+//
+//
+//                }else {snake[scanRow][scanColumn] = counter++;}
+//            }
+
+        for (int i = 0; i < scanRow; i++) {
+            if (scanRow % 2 == 0) {
+                snake[scanRow][scanColumn] = counter++;
+            }else {
+                for (column; column >= 0;column-- ) {
+                snake[scanRow][scanColumn] = counter++;
+            }
+            }
+
+        }
+
+
+        }
+        for (int[] row : snake){
+            for (int col : row) {
+                System.out.printf("%3d ",col);
+            }System.out.println("\n");
+        }
+//        for (scanRow = 0; scanRow < snake.length; scanRow++) {
+//            for (scanColumn = 0; scanColumn < snake[0].length; scanColumn++) {
+//               // System.out.print("%3d ",snake[scanRow][scanColumn] );
+//            }
+            //System.out.println(" ");
+           // System.out.println(quantity);
+        }*/
+
+
+    }

@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class MyMain {
     public static void main(String[] args) {
         //isEvenNumber();
-        //determineTemperature();
+        determineTemperature();
         //printSquaresNumbers();
         //showSequence();
-        sumUp();
+       // sumUp();
     }
 
     public static void isEvenNumber() {
@@ -42,7 +42,7 @@ public class MyMain {
                     System.out.println("Task 2: Warm.");
                 } else if (temptemperature > -20) {
                     System.out.println("Task 2: Normal.");
-                } else if (-20 >= temptemperature) {
+                } else if ( temptemperature <= -20) {
                     System.out.println("Task 2: Cold.");
                 }
                 break;
