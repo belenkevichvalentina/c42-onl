@@ -1,6 +1,7 @@
 package extraHomework_2;
+
+
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class HomeworkMainTicTacToe {
    /* Необходимо написать консольную игру «Крестики-нолики».
@@ -33,20 +34,26 @@ public class HomeworkMainTicTacToe {
    public static void main(String[] args) {
        System.out.println("Extra homework 2");
        System.out.println("Task 1 - Tic-Tac-Toe: ");
-       createTicTacToe();
+
+       TicTacToe board = new TicTacToe ();
        System.out.println("-".repeat(90));
+       System.out.println(Arrays.deepToString(board.getBoard()));
+       board.fillBoard();
+       board.printBoard();
+       board.selectTheTurnOrder();
+
    }
 
-    public static void createTicTacToe() {
-
-        char [][] arrayBoard = new char[3][3];
-        System.out.println(Arrays.deepToString(arrayBoard));
-        TicTacToe board = new TicTacToe (arrayBoard);
-
-        System.out.println("Создан массив размера доски TicTacToeBoard");
-        board.createTicTacToeBoard();
-        System.out.println("Объект  board игры  создан в методе");
-    }
+//    public static void createTicTacToe() {
+//
+//        char [][] arrayBoard = new char[3][3];
+//        System.out.println(Arrays.deepToString(arrayBoard));
+//        TicTacToe board = new TicTacToe (arrayBoard);
+//
+//        System.out.println("Создан массив размера доски TicTacToeBoard");
+//        board.createTicTacToeBoard();
+//        System.out.println("Объект  board игры  создан в методе");
+//    }
 
 
 
