@@ -38,9 +38,8 @@ public class HomeworkMainTicTacToe {
        TicTacToe board = new TicTacToe ();
        System.out.println("-".repeat(90));
        System.out.println(Arrays.deepToString(board.getBoard()));
-       board.fillBoard();
-       board.printBoard();
-       board.selectTheTurnOrder();
+
+       board.pleaGame();
 
    }
 

@@ -1,7 +1,16 @@
 package extraHomework_2;
 
+
+import java.util.Scanner;
+
 public class TicTacToe {
     private final char[][] board;
+    private final char X_Letter = 'X';
+    private final char O_Letter = 'O';
+    private boolean isNotFull;
+    private String turn;
+    private String winner;
+    Scanner scanner = new Scanner(System.in);
 
     public TicTacToe() {
         this.board = new char[3][3];
@@ -9,20 +18,27 @@ public class TicTacToe {
     }
 
     public void fillBoard() {
+        isNotFull = true;
+        winner = "Ничья";
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                this.board[i][j] = '-' ;
+                this.board[i][j] = '-';
+//                this.board[i][j] = X_Letter;
             }
         }
     }
 
     public void printBoard() {
+        System.out.print("* ");
+        for (int c = 0; c < board.length; c++) {
+            System.out.print(c + " ");
 
-
-        System.out.println("* 0 1 2 ");
+        }
+        System.out.println();
+        //   System.out.println("* 0 1 2 ");
 
         for (int i = 0; i < board.length; i++) {
-            System.out.print(i  + " ");
+            System.out.print(i + " ");
 
             for (int j = 0; j < board[i].length; j++) {
 
@@ -33,17 +49,188 @@ public class TicTacToe {
             System.out.println();
 
 
-
         }
     }
-    public void selectTheTurnOrder() {
+
+    public String getRandom() {
         double random = Math.random();
-        if (random < 0.5 ){
-            System.out.println("Ход искусственного интеллекта." + random);
-        }else {
-        System.out.println("Ход пользователя." + random);}
+        String pleaer = "человек";
+        String pleaerAI = "искусственный интеллект";
+
+//        if (random < 0.5) {
+//
+//            System.out.println("Ход искусственного интеллекта.");
+//            return pleaerAI;
+//
+//        }
+//
+//        System.out.println("Ход пользователя.");
+//        return pleaer;
+
+        String result = random < 0.5 ? pleaerAI : pleaer;
+        return result;
     }
 
+    public void pleaGame() {
+        AI ai = new AI();
+        People people = new People();
+        boolean continueGame = true;
+        while (continueGame) {
+            fillBoard();
+            printBoard();
+            String plearFirst = getRandom();
+            String secondPlayer;
+            if (plearFirst.equals("искусственный интеллект")) {
+                ai.setLeater(X_Letter);
+                this.turn = "Ai";
+                secondPlayer = "Человек";
+            } else {
+                ai.setLeater(O_Letter);
+                this.turn = "Человек";
+                secondPlayer = "искусственный интеллект";
+            }
+
+            if (plearFirst.equals("человек")) {
+                people.setLeater(X_Letter);
+            } else {
+                people.setLeater(O_Letter);
+            }
+            System.out.println("Первым ходит " + plearFirst + " и ставит "
+                    + (plearFirst.equals("искусственный интеллект") ? ai.getLeater() : people.getLeater()));
+
+            while (isNotFull) {
+                if (this.turn.equals("Ai")) {
+                    aiTurn(ai);
+                    this.turn = "Человек";
+                } else {
+                    peopleTurne(people);
+                    this.turn = "Ai";
+                }
+                isNotFull = chekFild();
+                printBoard();
+                System.out.println("++++++++++++++++++++++");
+                determineTheWiner(plearFirst, secondPlayer);
+            }
+            System.out.println(winner);
+            System.out.println("Сыграем еще Y - да N - нет");
+            scanner.nextLine();
+            String decision = scanner.nextLine();
+
+            if (decision.equals("N")) {
+                continueGame = false;
+            }
+        }
+        scanner.close();
+    }
+
+    public void aiTurn(AI ai) {
+        ai.makeAITurn();
+        int i = ai.getiAI();
+        int j = ai.getjAI();
+
+        while (this.board[i][j] == X_Letter || this.board[i][j] == O_Letter) {
+            ai.makeAITurn();
+            i = ai.getiAI();
+            j = ai.getjAI();
+        }
+        this.board[i][j] = ai.getLeater();
+    }
+
+    public void peopleTurne(People people) {
+        System.out.println("Введи Х");
+        people.setiPeople(scanner.nextInt());
+        System.out.println("Введи У");
+        people.setjPeople(scanner.nextInt());
+
+        int ip = people.getiPeople();
+//        if (ip == 0 || ip == 1 || ip == 2) {
+//            break;
+//        }
+        System.out.println("Неверное число. Введите число 0, 1 или 2.");
+        int jp = people.getjPeople();
+//        if (jp == 0 || jp == 1 || jp == 2) {
+//            break;
+//        }
+        System.out.println("Неверное число. Введите число 0, 1 или 2.");
+        while (this.board[ip][jp] == X_Letter || this.board[ip][jp] == O_Letter) {
+            System.out.println("Поле занято введите новое");
+            System.out.println("Введи Х");
+            people.setiPeople(scanner.nextInt());
+            System.out.println("Введи У");
+            people.setjPeople(scanner.nextInt());
+            ip = people.getiPeople();
+            // if (ip == 0 || ip == 1 || ip == 2) {
+//            break;
+//        } System.out.println("Неверное число. Введите число 0, 1 или 2.");
+            jp = people.getjPeople();
+            //  if (jp == 0 || jp == 1 || jp == 2) {
+//            break;
+//        }System.out.println("Неверное число. Введите число 0, 1 или 2.");
+        }
+        this.board[ip][jp] = people.getLeater();
+    }
+
+
+    public boolean chekFild() {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (this.board[i][j] == '-') {
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+
+    public void determineTheWiner(String playerWithFirstTurn, String secondPlayer) {
+
+        for (int i = 0; i < 3; i++) {
+            if (this.board[i][0] != '-' && this.board[i][0] == this.board[i][1] && this.board[i][1] == this.board[i][2]) {
+                isNotFull = false;
+
+                char leaterArray = this.board[i][0];
+                if (leaterArray == X_Letter) {
+                    winner = "победа " + playerWithFirstTurn;
+                } else if (leaterArray == O_Letter) {
+                    winner = "победа " + secondPlayer;
+                }
+
+                return;
+
+            }
+            if (this.board[0][i] != '-' && this.board[0][i] == this.board[1][i] && this.board[1][i] == this.board[2][i]) {
+                isNotFull = false;
+                char leaterArray = this.board[0][i];
+                if (leaterArray == X_Letter) {
+                    winner = "победа " + playerWithFirstTurn;
+                } else if (leaterArray == O_Letter) {
+                    winner = "победа " + secondPlayer;
+                }
+                return;
+            }
+
+        }
+
+        if (this.board[0][0] != '-' && this.board[0][0] == this.board[1][1] && this.board[0][0] == this.board[2][2]) {
+            char leaterArray = this.board[0][0];
+            if (leaterArray == X_Letter) {
+                winner = "победа " + playerWithFirstTurn;
+            } else if (leaterArray == O_Letter) {
+                winner = "победа " + secondPlayer;
+            }
+            isNotFull = false;
+        }
+        if (this.board[0][2] != '-' && this.board[0][2] == this.board[1][1] && this.board[1][1] == this.board[2][0]) {
+            char leaterArray = this.board[0][2];
+            if (leaterArray == X_Letter) {
+                winner = "победа " + playerWithFirstTurn;
+            } else if (leaterArray == O_Letter) {
+                winner = "победа " + secondPlayer;
+            }
+            isNotFull = false;
+        }
+    }
 
     public char[][] getBoard() {
         return this.board;
