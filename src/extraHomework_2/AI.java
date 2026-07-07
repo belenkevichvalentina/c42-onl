@@ -5,7 +5,7 @@ import java.util.Random;
 public class AI {
     private int iAI;
     private int jAI;
-    private char leater;
+    private char letter;
 
 
     public void makeAITurn(){
@@ -22,11 +22,11 @@ public class AI {
     public int getjAI() {
         return jAI;
     }
-    public void setLeater (char leater) {
-        this.leater = leater;
+    public void setLetter(char letter) {
+        this.letter = letter;
     }
 
-    public char getLeater() {
-        return leater;
+    public char getLetter() {
+        return letter;
     }
 }

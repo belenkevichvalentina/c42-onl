@@ -81,22 +81,22 @@ public class TicTacToe {
             String plearFirst = getRandom();
             String secondPlayer;
             if (plearFirst.equals("искусственный интеллект")) {
-                ai.setLeater(X_Letter);
+                ai.setLetter(X_Letter);
                 this.turn = "Ai";
                 secondPlayer = "Человек";
             } else {
-                ai.setLeater(O_Letter);
+                ai.setLetter(O_Letter);
                 this.turn = "Человек";
                 secondPlayer = "искусственный интеллект";
             }
 
             if (plearFirst.equals("человек")) {
-                people.setLeater(X_Letter);
+                people.setLetter(X_Letter);
             } else {
-                people.setLeater(O_Letter);
+                people.setLetter(O_Letter);
             }
             System.out.println("Первым ходит " + plearFirst + " и ставит "
-                    + (plearFirst.equals("искусственный интеллект") ? ai.getLeater() : people.getLeater()));
+                    + (plearFirst.equals("искусственный интеллект") ? ai.getLetter() : people.getLetter()));
 
             while (isNotFull) {
                 if (this.turn.equals("Ai")) {
@@ -133,41 +133,57 @@ public class TicTacToe {
             i = ai.getiAI();
             j = ai.getjAI();
         }
-        this.board[i][j] = ai.getLeater();
+        this.board[i][j] = ai.getLetter();
     }
 
     public void peopleTurne(People people) {
-        System.out.println("Введи Х");
-        people.setiPeople(scanner.nextInt());
-        System.out.println("Введи У");
-        people.setjPeople(scanner.nextInt());
-
-        int ip = people.getiPeople();
-//        if (ip == 0 || ip == 1 || ip == 2) {
-//            break;
-//        }
-        System.out.println("Неверное число. Введите число 0, 1 или 2.");
-        int jp = people.getjPeople();
-//        if (jp == 0 || jp == 1 || jp == 2) {
-//            break;
-//        }
-        System.out.println("Неверное число. Введите число 0, 1 или 2.");
-        while (this.board[ip][jp] == X_Letter || this.board[ip][jp] == O_Letter) {
-            System.out.println("Поле занято введите новое");
+        int ip;
+        int jp;
+        while (true) {
             System.out.println("Введи Х");
             people.setiPeople(scanner.nextInt());
+           people.setjPeople(scanner.nextInt());
+
+            ip = people.getiPeople();
+            if (ip == 0 || ip == 1 || ip == 2) {
+                break;
+            }
+            System.out.println("Неверное число. Введите число 0, 1 или 2.");
+        }
+        while (true) {
             System.out.println("Введи У");
             people.setjPeople(scanner.nextInt());
-            ip = people.getiPeople();
-            // if (ip == 0 || ip == 1 || ip == 2) {
-//            break;
-//        } System.out.println("Неверное число. Введите число 0, 1 или 2.");
             jp = people.getjPeople();
-            //  if (jp == 0 || jp == 1 || jp == 2) {
-//            break;
-//        }System.out.println("Неверное число. Введите число 0, 1 или 2.");
+            if (jp == 0 || jp == 1 || jp == 2) {
+                break;
+            }
+            System.out.println("Неверное число. Введите число 0, 1 или 2.");
         }
-        this.board[ip][jp] = people.getLeater();
+
+        while (this.board[ip][jp] == X_Letter || this.board[ip][jp] == O_Letter) {
+            System.out.println("Поле занято введите новое");
+            while (true) {
+                System.out.println("Введи Х");
+                people.setiPeople(scanner.nextInt());
+
+           people.setjPeople(scanner.nextInt());
+                ip = people.getiPeople();
+                if (ip == 0 || ip == 1 || ip == 2) {
+                    break;
+                }
+                System.out.println("Неверное число. Введите число 0, 1 или 2.");
+            }
+            while (true){
+            System.out.println("Введи У");
+            people.setjPeople(scanner.nextInt());
+            jp = people.getjPeople();
+            if (jp == 0 || jp == 1 || jp == 2) {
+                break;
+            }
+            System.out.println("Неверное число. Введите число 0, 1 или 2.");
+        }
+        }
+        this.board[ip][jp] = people.getLetter();
     }
 
 

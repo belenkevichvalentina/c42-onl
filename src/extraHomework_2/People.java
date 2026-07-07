@@ -1,19 +1,17 @@
 package extraHomework_2;
 
-import java.util.Random;
-
 public class People {
     private int iPeople;
     private int jPeople;
-    private char leater;
+    private char letter;
 
-    public void makePeopleTurn() {
-        Random random = new Random();
-        int i = random.nextInt(3);
-        int j = random.nextInt(3);
-        this.iPeople = i;
-        this.jPeople = j;
-    }
+//    public void makePeopleTurn() {
+//        Random random = new Random();
+//        int i = random.nextInt(3);
+//        int j = random.nextInt(3);
+//        this.iPeople = i;
+//        this.jPeople = j;
+//    }
 
     public int getiPeople() {
         return iPeople;
@@ -31,11 +29,11 @@ public class People {
         this.jPeople = jPeople;
     }
 
-    public void setLeater(char leater) {
-        this.leater = leater;
+    public void setLetter(char letter) {
+        this.letter = letter;
     }
 
-    public char getLeater() {
-        return leater;
+    public char getLetter() {
+        return letter;
     }
 }
