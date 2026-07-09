@@ -43,16 +43,7 @@ public class HomeworkMainTicTacToe {
 
    }
 
-//    public static void createTicTacToe() {
-//
-//        char [][] arrayBoard = new char[3][3];
-//        System.out.println(Arrays.deepToString(arrayBoard));
-//        TicTacToe board = new TicTacToe (arrayBoard);
-//
-//        System.out.println("Создан массив размера доски TicTacToeBoard");
-//        board.createTicTacToeBoard();
-//        System.out.println("Объект  board игры  создан в методе");
-//    }
+
 
 
 

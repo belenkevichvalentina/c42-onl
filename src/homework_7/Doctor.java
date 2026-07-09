@@ -15,6 +15,8 @@ public class Doctor {
     }
 
 
-    public void treat(){ System.out.println("Осмотреть пациента");}
+    public void treat(){
+        System.out.println("Осмотреть пациента");
+    }
 
 }
