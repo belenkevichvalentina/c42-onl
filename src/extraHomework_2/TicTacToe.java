@@ -142,7 +142,7 @@ public class TicTacToe {
         while (true) {
             System.out.println("Введи Х");
             people.setiPeople(scanner.nextInt());
-           people.setjPeople(scanner.nextInt());
+
 
             ip = people.getiPeople();
             if (ip == 0 || ip == 1 || ip == 2) {
@@ -165,8 +165,6 @@ public class TicTacToe {
             while (true) {
                 System.out.println("Введи Х");
                 people.setiPeople(scanner.nextInt());
-
-           people.setjPeople(scanner.nextInt());
                 ip = people.getiPeople();
                 if (ip == 0 || ip == 1 || ip == 2) {
                     break;
