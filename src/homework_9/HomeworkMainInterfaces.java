@@ -12,7 +12,7 @@ public class HomeworkMainInterfaces {
      периметра всех фигур в массиве.
              Задача *:
      Самостоятельно изучить и показать пример работы интерфейса-маркера Cloneable.*/
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException{
         System.out.println("Homework 9 ");
         System.out.println("Task 1 : ");
         printPositions();
@@ -21,6 +21,7 @@ public class HomeworkMainInterfaces {
         calculateTotalPerimeter();
         System.out.println("-".repeat(90));
         System.out.println("Task * : ");
+        createAndCloneCat();
     }
 
     public static void printPositions() {
@@ -47,6 +48,21 @@ public class HomeworkMainInterfaces {
         }
 
         System.out.printf("Сумма периметров всех фигур в массиве: %.2f\n", totalPerimeter);
+
+    }
+
+    public static void createAndCloneCat() throws CloneNotSupportedException{
+        Cat originalCat = new Cat("Nika","black",4.5);
+        Cat cloneCat = (Cat) originalCat.clone();
+
+        System.out.println("--- До изменений ---");
+        System.out.println("Оригинал: " + originalCat);
+        System.out.println("Клон:     " + cloneCat);
+        cloneCat.setColorCat("ginger");
+        cloneCat.setWeightCat(10.0);
+        System.out.println("--- После изменений клона ---");
+        System.out.println("Оригинал: " + originalCat);
+        System.out.println("Клон:     " + cloneCat);
 
     }
 }
