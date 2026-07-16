@@ -6,7 +6,7 @@ public class Animal {
         System.out.println("Животное издает звук");
     }
     public void eat(String food) {
-        System.out.println("Животное ест пищу" + food);
+        System.out.println("Животное ест пищу " + food);
     }
 
 }

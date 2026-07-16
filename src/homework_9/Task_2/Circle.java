@@ -1,4 +1,4 @@
-package homework_9;
+package homework_9.Task_2;
 
 public class Circle extends Figure {
     private final double radius;
@@ -15,5 +15,9 @@ public class Circle extends Figure {
     public double calculatePerimeter() {
         return 2 * Math.PI * this.radius;
 
+    }
+    @Override
+    public String getFigure() {
+        return "Circle";
     }
 }

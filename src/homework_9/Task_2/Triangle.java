@@ -1,6 +1,6 @@
-package homework_9;
+package homework_9.Task_2;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     private final double sideA;
     private final double sideB;
     private final double sideC;
@@ -21,7 +21,13 @@ public class Triangle extends Figure{
 
     @Override
     public double calculatePerimeter() {
-        double perimeterTriangle = this.sideA + this.sideB + this.sideC;
-        return perimeterTriangle;
+//        double perimeterTriangle = this.sideA + this.sideB + this.sideC;
+//        return perimeterTriangle;
+        return this.sideA + this.sideB + this.sideC;
+    }
+
+    @Override
+    public String getFigure() {
+        return "Triangle";
     }
 }

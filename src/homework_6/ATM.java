@@ -13,11 +13,7 @@ public class ATM {
     public int denomination20;
     public int denomination50;
     public int denomination100;
-
-
     public int totalSum;
-
-
     public ATM(int denomination20, int denomination50, int denomination100) {
         this.denomination20 = denomination20;
         this.denomination50 = denomination50;
@@ -25,24 +21,18 @@ public class ATM {
         this.totalSum = (denomination20 * 20) + (denomination50 * 50) + (denomination100 * 100);
 
     }
-
     public void addSum(int denomination20, int denomination50, int denomination100) {
         totalSum = totalSum + (denomination20 * 20) + (denomination50 * 50) + (denomination100 * 100);
     }
-
-
     public boolean minusAmount(int sum) {
         int remaining = sum;
         int take100 = 0;
         int take50 = 0;
         int take20 = 0;
-
         if (remaining > totalSum) {
-
             System.out.println("Запрошенная сумма недоступна. В наличии есть - " + totalSum);
             return false;
         }
-
         if (remaining >= denomination100) {
             take100 = remaining / 100;
             if (take100 > denomination100) {
@@ -50,7 +40,6 @@ public class ATM {
             }
             remaining -= take100 * 100;
         }
-
         if (remaining >= denomination50) {
             take50 = remaining / 50;
             if (take50 > denomination50) {
@@ -58,7 +47,6 @@ public class ATM {
             }
             remaining -= take50 * 50;
         }
-
         if (remaining >= denomination20) {
             take20 = remaining / 20;
             if (take20 > denomination20) {
@@ -66,8 +54,6 @@ public class ATM {
             }
             remaining -= take20 * 20;
         }
-
-
         System.out.println("Remaining " + remaining);
         if (remaining > 0) {
             System.out.println("В банкомате отсутствуют купюры нужного номинала " + remaining

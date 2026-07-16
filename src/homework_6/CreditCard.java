@@ -11,7 +11,6 @@ public class CreditCard {
     teachmeskills.by
    */
 
-
     public int accountNumber;
     public double amountOnTheAccount;
 
@@ -20,20 +19,19 @@ public class CreditCard {
         this.accountNumber = accountNumber;
     }
 
-    public void addSum(double amount){
-
-        amountOnTheAccount+=amount;
-
+    public void addSum(double amount) {
+        amountOnTheAccount += amount;
     }
+
     public void withdrawAmount(double amount) {
-        amountOnTheAccount-=amount;
+        amountOnTheAccount -= amount;
     }
-    public void getCreditCardInfo(){
-        System.out.printf("\tНомер счета кредитной карты № " + accountNumber + " ,сумма на на счете %.2f  $\n",
-                amountOnTheAccount );
+
+    public void getCreditCardInfo() {
+        System.out.printf("\tНомер счета кредитной карты № " + accountNumber + ",сумма на на счете %.2f  $\n",
+                amountOnTheAccount);
         System.out.println("-".repeat(90));
     }
-
 
 
 }

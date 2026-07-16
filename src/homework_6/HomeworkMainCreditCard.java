@@ -19,16 +19,17 @@ public class HomeworkMainCreditCard {
     какого номинала выдаётся сумма. Создать конструктор с тремя параметрами -
     количеством купюр каждого номинала*/
 
-   public static void main(String[] args){
-       System.out.println("Homework 6 ");
-       System.out.println("Task 1 : ");
+    public static void main(String[] args) {
+        System.out.println("Homework 6 ");
+        System.out.println("Task 1 : ");
         createCreditCard();
-       System.out.println("-".repeat(90));
-       System.out.println("Task * : ");
-       createATM();
+        System.out.println("-".repeat(90));
+        System.out.println("Task * : ");
+        createATM();
 
     }
-    public static void createCreditCard(){
+
+    public static void createCreditCard() {
         CreditCard card1 = new CreditCard(10_000, 111);
         CreditCard card2 = new CreditCard(10_000, 211);
         CreditCard card3 = new CreditCard(10_000, 311);
@@ -38,16 +39,12 @@ public class HomeworkMainCreditCard {
         card1.getCreditCardInfo();
         card2.getCreditCardInfo();
         card3.getCreditCardInfo();
-
     }
 
-    public static void createATM(){
-        ATM bankAccount = new ATM(10,6,5);
-
-        bankAccount.addSum(1,1,1);
-
+    public static void createATM() {
+        ATM bankAccount = new ATM(10, 6, 5);
+        bankAccount.addSum(1, 1, 1);
         boolean drawOut = bankAccount.minusAmount(560);
-
         System.out.println(bankAccount.totalSum);
         System.out.println(drawOut);
     }

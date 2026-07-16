@@ -1,17 +1,14 @@
 package homework_7;
 
-public class PCP extends Doctor{
+public class PCP extends Doctor {
 
     public PCP() {
-
-        System.out.println("Создан терапевт PCP");
     }
 
     @Override
-    public void treat(){
+    public void treat() {
         System.out.println("Измерить давление.");
     }
-
 
     /*терапевта создать метод, который будет назначать врача пациенту согласно плану
         лечения:
@@ -30,12 +27,12 @@ public class PCP extends Doctor{
             Doctor doctor = new Dentist();
             patient.setDoctor(doctor);
         }
-        if (code != 1 && code !=2){
+        if (code != 1 && code != 2) {
             Doctor doctor = new PCP();
             patient.setDoctor(doctor);
         }
         Doctor doctor = patient.getDoctor();
-        System.out.println("Счас полечим");
+        System.out.println("Сейчас полечим");
         doctor.treat();
     }
 

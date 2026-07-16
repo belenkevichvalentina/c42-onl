@@ -25,20 +25,16 @@ public class HomeworkMainAnimal {
         Animal animal = new Animal();
         animal.eat("Grass");
         animal.voice();
-
         System.out.println();
 
         Animal dog = Dog.getDog();
-
         dog.voice();
-        dog.eat("6");
-
+        dog.eat("Grass");
         System.out.println();
 
         Animal tiger = new Tiger();
         tiger.voice();
         tiger.eat("Meat");
-
         System.out.println();
 
         Animal rabbit = new Rabbit();

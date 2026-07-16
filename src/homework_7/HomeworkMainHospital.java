@@ -19,14 +19,14 @@ public class HomeworkMainHospital {
     используя сеттеры изменить значение поля color.
     */
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         System.out.println("Homework 7 ");
         System.out.println("Task 1 : ");
         createHospital();
         System.out.println("-".repeat(90));
     }
 
-    public static void createHospital(){
+    public static void createHospital() {
 
         Patient patient = new Patient(1);
         PCP therapist = new PCP();
