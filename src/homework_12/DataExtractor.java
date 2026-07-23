@@ -34,7 +34,7 @@ public class DataExtractor {
     }
 
     public void findEmail(String data) {
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
         Matcher matcher = pattern.matcher(data);
         while (matcher.find()) {
             System.out.println("email: " + matcher.group());
