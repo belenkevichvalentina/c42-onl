@@ -30,9 +30,6 @@ public class HomeworkString {
         String string1 = scanner.nextLine();
         String string2 = scanner.nextLine();
         String string3 = scanner.nextLine();
-        System.out.println(string1);
-        System.out.println(string2);
-        System.out.println(string3);
         getMinMax(string1, string2, string3);
         System.out.println("-".repeat(90));
         System.out.println("Task 2 : ");
